@@ -8,7 +8,7 @@ RUN apk update && \
     tar -xvf better-cf-ip-latest.tar.gz && \
     cd better-cf-ip-latest && \
     cd fping-4.2 && \
-    ./configure && \
+    sh ./configure && \
     make && \
     apk del gcc make openssl-dev zlib-dev perl-dev pcre-dev libc-dev && \
     rm -rf /var/cache/* && \
