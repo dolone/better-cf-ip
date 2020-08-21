@@ -1,8 +1,9 @@
 #!/bin/bash
 # random cloudflare anycast ip
-declare -i bandwidth
+# 手动指定 20Mbps
+declare -i bandwidth=20
 declare -i speed
-read -p "请设置期望到 CloudFlare 服务器的带宽大小(单位 Mbps):" bandwidth
+# read -p "请设置期望到 CloudFlare 服务器的带宽大小(单位 Mbps):" bandwidth
 speed=bandwidth*128*1024
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
 while true
