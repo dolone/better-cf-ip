@@ -2,11 +2,11 @@ FROM ubuntu:18.04
 RUN apt update -y && \
     apt install curl -y && \
     apt install build-essential -y && \
-    apt install git -y
 WORKDIR /root
-RUN git clone https://github.com/dolone/better-cf-ip.git && \
-    cd better-cf-ip && \
+RUN curl -O https://github.com/dolone/better-cf-ip/archive/latest.zip && \
+    tar -vxf better-cf-ip-latest && \
+    cd better-cf-ip-latest && \
     cd fping-4.2 && \
     ./configure && \
     make
-CMD ["sh", "-c", "/root/better-cf-ip/fping-4.2/src/cf.sh"]
+CMD ["sh", "-c", "/root/better-cf-ip-latest/fping-4.2/src/cf.sh"]
