@@ -10,10 +10,9 @@ RUN apk update && \
     cd fping-4.2 && \
     ./configure && \
     make && \
-    
     apk del gcc make openssl-dev zlib-dev perl-dev pcre-dev libc-dev && \
     rm -rf /var/cache/* && \
-    rm -rf /tmp/* && \
+    rm -rf /tmp/*
 
 WORKDIR /root
 
