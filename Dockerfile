@@ -5,8 +5,8 @@ RUN apt update -y && \
     apt install git -y
 WORKDIR /root
 RUN git clone https://github.com/dolone/better-cf-ip.git && \
-    tar -vxf fping-4.2.tar.gz && \
+    cd better-cf-ip && \
     cd fping-4.2 && \
     ./configure && \
     make
-CMD ["/root/fping-4.2/src/cf.sh"]
+CMD ["/root/better-cf-ip/fping-4.2/src/cf.sh"]
