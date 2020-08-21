@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
-RUN apt update && apt install curl -y && apt install build-essential -y
+RUN apt update && \
+    apt install curl -y && \
+    apt install build-essential -y && \
+    apt install git
 WORKDIR /root
 RUN git clone https://github.com/dolone/better-cf-ip.git && \
     tar -vxf fping-4.2.tar.gz && \
