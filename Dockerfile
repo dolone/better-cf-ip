@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
-RUN apt update -y && \
-    apt install curl -y && \
-    apt install build-essential -y && \
+RUN apt-get update -y && \
+    apt-get install curl -y && \
+    apt-get install build-essential -y && \
 WORKDIR /root
 RUN curl -O https://github.com/dolone/better-cf-ip/archive/latest.zip && \
     tar -vxf better-cf-ip-latest && \
