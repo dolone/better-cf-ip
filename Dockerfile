@@ -9,4 +9,4 @@ RUN git clone https://github.com/dolone/better-cf-ip.git && \
     cd fping-4.2 && \
     ./configure && \
     make
-CMD ["/root/better-cf-ip/fping-4.2/src/cf.sh"]
+CMD ["sh", "-c", "/root/better-cf-ip/fping-4.2/src/cf.sh"]
