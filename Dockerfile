@@ -16,4 +16,6 @@ RUN apk update && \
 
 WORKDIR /root
 
+VOLUME ["/root"]
+
 CMD ["sh", "-c", "/root/better-cf-ip-latest/fping-4.2/src/cf.sh"]
