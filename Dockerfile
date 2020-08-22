@@ -2,6 +2,7 @@ FROM alpine
 
 # install gcc curl bash
 # remove gcc after make
+# 使用 curl 下载源码 zip 压缩包
 # --no-cache 选项允许不在本地缓存索引，这对于保持容器较小很有用
 # 需要安装 bash 来执行脚本，/bin/sh 语法不同
 # 需要给脚本加执行权限
@@ -11,20 +12,20 @@ RUN apk update && \
     apk add --no-cache curl && \
     apk add --no-cache bash bash-doc bash-completion && \
     cd /root && \
-    curl -LJO https://github.com/dolone/better-cf-ip/archive/latest.tar.gz && \
-    tar -xvf better-cf-ip-latest.tar.gz && \
-    cd better-cf-ip-latest && \
+    curl -LJO https://github.com/dolone/better-cf-ip/archive/master.zip && \
+    unzip better-cf-ip-master.zip && \
+    cd better-cf-ip-master && \
     cd fping-4.2 && \
     sh ./configure && \
     make && \
-    chmod +x /root/better-cf-ip-latest/fping-4.2/src/cf.sh && \
+    chmod +x /root/better-cf-ip-master/fping-4.2/src/cf.sh && \
     apk del gcc make openssl-dev zlib-dev perl-dev pcre-dev libc-dev && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
 
 # 需要在此目录执行脚本
-WORKDIR /root/better-cf-ip-latest/fping-4.2/src
+WORKDIR /root/better-cf-ip-master/fping-4.2/src
 
-VOLUME /root
+VOLUME ["/root"]
 
 CMD ["/bin/bash", "-c", "./cf.sh"]
