@@ -1,5 +1,7 @@
 # better-cf-ip
 
+> build from https://github.com/badafans/better-cloudflare-ip
+
 ## step1.使用容器 better-cf-ip
 docker pull duxlong/better-cf-ip
 
