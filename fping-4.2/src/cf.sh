@@ -5707,8 +5707,7 @@ do
 			echo 198.41.222.$i >> ip.txt
 		i=$[($RANDOM*2+1)%255]
 			echo 198.41.223.$i >> ip.txt
-		
-		-f ip.txt -c 30 -i 0 > fping.txt
+		./fping -f ip.txt -c 30 -i 0 > fping.txt
 		sort -t/ -k 5n fping.txt | cut -f1 -d: | sed '101,$d' > ip.txt
 		rm -rf fping.txt
 		echo 选取100个丢包率最少的IP地址下载测速
