@@ -26,6 +26,6 @@ RUN apk update && \
 # 需要在此目录执行脚本
 WORKDIR /root/better-cf-ip-master/fping-4.2/src
 
-VOLUME /root
+VOLUME ["/root"]
 
 CMD ["/bin/bash", "-c", "./cf.sh"]
