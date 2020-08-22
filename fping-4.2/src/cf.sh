@@ -5707,7 +5707,8 @@ do
 			echo 198.41.222.$i >> ip.txt
 		i=$[($RANDOM*2+1)%255]
 			echo 198.41.223.$i >> ip.txt
-		./fping -f ip.txt -c 30 -i 0 > fping.txt
+		
+		-f ip.txt -c 30 -i 0 > fping.txt
 		sort -t/ -k 5n fping.txt | cut -f1 -d: | sed '101,$d' > ip.txt
 		rm -rf fping.txt
 		echo 选取100个丢包率最少的IP地址下载测速
@@ -5944,3 +5945,5 @@ done
 	end_seconds=$(date --date="$endtime" +%s)
 	clear
 	echo $anycast 满足 $bandwidth Mbps带宽需求,峰值速度 $max kB/s,总计用时 $((end_seconds-start_seconds)) 秒
+	# 写入文件
+	echo anycast > /root/ip.txt
