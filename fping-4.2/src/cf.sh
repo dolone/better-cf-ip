@@ -5945,4 +5945,4 @@ done
 	clear
 	echo $anycast 满足 $bandwidth Mbps带宽需求,峰值速度 $max kB/s,总计用时 $((end_seconds-start_seconds)) 秒
 	# 写入文件
-	echo anycast > /root/result/ip.txt
+	echo $anycast > /root/result/ip.txt
