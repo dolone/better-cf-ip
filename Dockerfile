@@ -22,8 +22,9 @@ RUN apk update && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
 
-WORKDIR /root
+# 需要在此目录执行脚本
+WORKDIR /root/better-cf-ip-latest/fping-4.2/src
 
-VOLUME ["/root"]
+VOLUME /root
 
-CMD ["/bin/bash", "-c", "/root/better-cf-ip-latest/fping-4.2/src/cf.sh"]
+CMD ["/bin/bash", "-c", "./cf.sh"]
