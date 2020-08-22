@@ -19,6 +19,7 @@ RUN apk update && \
     sh ./configure && \
     make && \
     chmod +x /root/better-cf-ip-master/fping-4.2/src/cf.sh && \
+    mkdir /root/result && \
     apk del gcc make openssl-dev zlib-dev perl-dev pcre-dev libc-dev && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
@@ -26,6 +27,7 @@ RUN apk update && \
 # 需要在此目录执行脚本
 WORKDIR /root/better-cf-ip-master/fping-4.2/src
 
-VOLUME ["/root"]
+# 运行结果 /root/result/ip.txt
+VOLUME ["/root/result"]
 
 CMD ["/bin/bash", "-c", "./cf.sh"]
