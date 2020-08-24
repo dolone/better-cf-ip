@@ -12,7 +12,7 @@ RUN apk update && \
     apk add --no-cache curl && \
     apk add --no-cache bash bash-doc bash-completion && \
     cd /root && \
-    curl -LJO https://github.com/dolone/better-cf-ip/archive/master.zip && \
+    curl -LJO https://github.com/duxlong/better-cf-ip/archive/master.zip && \
     unzip better-cf-ip-master.zip && \
     cd better-cf-ip-master && \
     cd fping-4.2 && \
